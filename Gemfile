@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'zurb-foundation'
 gem 'devise'
+gem 'haml'
+gem 'haml-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
