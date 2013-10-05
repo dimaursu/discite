@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Symbiosis::Application.config.secret_key_base = '4198616d62e3244a9bd76f4bf1cc972b3216bbe1fcd198aad6c59233b02369333f61052877e44f2102976d6b1ea57861186a355f4fdefd1a83be656392b82190'
+Osmosis::Application.config.secret_key_base = '4198616d62e3244a9bd76f4bf1cc972b3216bbe1fcd198aad6c59233b02369333f61052877e44f2102976d6b1ea57861186a355f4fdefd1a83be656392b82190'

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Symbiosis::Application.load_tasks
+Osmosis::Application.load_tasks
