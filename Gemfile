@@ -6,6 +6,8 @@ gem 'zurb-foundation'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
+gem 'rubysl'
+gem 'kaminari'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -45,6 +47,4 @@ end
 # Use Capistrano for deployment
 gem 'capistrano'
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
 gem 'better_errors', group: :development
