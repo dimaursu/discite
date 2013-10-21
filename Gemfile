@@ -26,7 +26,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use zepto as the JavaScript library
-gem 'zepto-rails'
+gem 'zepto_rails'
 gem 'rails-behaviors'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
