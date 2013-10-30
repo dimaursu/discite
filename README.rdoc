@@ -26,7 +26,11 @@ Things you may want to cover:
 # To Do
 Integrate TogetherJS
 
-
+Possible names: 
+Osmosis
+Discite
+    Aut disce aut discede
+    Either learn or go away.
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
