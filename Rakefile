@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Osmosis::Application.load_tasks
+Discite::Application.load_tasks
