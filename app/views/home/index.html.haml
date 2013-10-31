@@ -1,3 +1,32 @@
+%h2
+  = t(:welcome_msg)
+%h5 Legend:
+%i.fi-check - Done
+%i.fi-wrench - In progress
+%i.fi-x - Feature not available
+.row
+  .columns.small-6{style: "padding: 0px 30px;"}
+    %h5 Here you can:
+    %ul
+      %i.fi-wrench.right
+      %li pick a teacher/course based on your interests
+      %i.fi-x.right
+      %li give the course and teacher a rating
+      %i.fi-wrench.right
+      %li choose a prefered language
+      %i.fi-x.right
+      %li filter by skills you are looking for
+  .columns.small-6
+    %h5 The site also allows:
+    %ul
+      %i.fi-x.right
+      %li screen sharing
+      %i.fi-x.right
+      %li voice/video chat
+      %i.fi-x.right
+      %li presentations
+      %i.fi-x.right
+      %li doodling
 .slideshow-wrapper
   .preloader
   %ul{"data-orbit" => ""}
@@ -7,7 +36,8 @@
     %li
       %img{src: "/slider/2.jpg"}
       .orbit-caption "Some other stuff"
-
-%i.fi-die-six
-%i.fi-plus
+.row
+  %h4 Most popular courses
+.row
+  %h4 Newest courses
 
