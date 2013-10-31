@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/capistrano/chruby.git
+  revision: cffa4147003041e07cb58e06e3a217a0cce41603
+  specs:
+    capistrano-chruby (0.0.1)
+      capistrano
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,6 +45,14 @@ GEM
       i18n
       rake (>= 10.0.0)
       sshkit (>= 0.0.23)
+    capistrano-bundler (1.0.0)
+      capistrano (>= 3.0.0.pre)
+    capistrano-rails (1.0.0)
+      capistrano
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -75,6 +90,7 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    language_list (1.0.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -85,6 +101,11 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
     orm_adapter (0.4.0)
+    paperclip (3.5.2)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     polyglot (0.3.3)
     psych (2.0.1)
     racc (1.4.10)
@@ -374,6 +395,9 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capistrano
+  capistrano-bundler
+  capistrano-chruby!
+  capistrano-rails
   coffee-rails (~> 4.0.0)
   devise
   foundation-icons-sass-rails
@@ -381,6 +405,8 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   kaminari
+  language_list
+  paperclip
   rails (= 4.0.0)
   rails-behaviors
   rubysl
