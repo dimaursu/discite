@@ -5,7 +5,7 @@ set :stage, :production
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :all, %w{discite@ceata.org}
+role :all, %w{discite@alt.ceata.org}
 
 # Extended Server Syntax
 # ======================

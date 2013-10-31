@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/capistrano/chruby.git
-  revision: cffa4147003041e07cb58e06e3a217a0cce41603
-  specs:
-    capistrano-chruby (0.0.1)
-      capistrano
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,6 +41,8 @@ GEM
     capistrano-bundler (1.0.0)
       capistrano (>= 3.0.0.pre)
     capistrano-rails (1.0.0)
+      capistrano
+    capistrano-rvm (0.0.3)
       capistrano
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -108,6 +103,8 @@ GEM
       mime-types
     polyglot (0.3.3)
     psych (2.0.1)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     racc (1.4.10)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -399,8 +396,8 @@ DEPENDENCIES
   binding_of_caller
   capistrano
   capistrano-bundler
-  capistrano-chruby!
   capistrano-rails
+  capistrano-rvm
   coffee-rails (~> 4.0.0)
   devise
   foundation-icons-sass-rails
@@ -410,6 +407,7 @@ DEPENDENCIES
   kaminari
   language_list
   paperclip
+  puma
   rails (= 4.0.0)
   rails-behaviors
   rubysl

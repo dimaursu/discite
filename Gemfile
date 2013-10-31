@@ -15,7 +15,8 @@ gem 'language_list'
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
-gem 'capistrano-chruby', github: "capistrano/chruby"
+gem 'capistrano-rvm'
+gem 'puma'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
