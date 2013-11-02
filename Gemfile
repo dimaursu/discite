@@ -12,8 +12,6 @@ gem 'rubysl'
 gem 'kaminari'
 gem 'paperclip'
 gem 'language_list'
-gem 'capistrano-rails'
-gem 'rvm1-capistrano3', require: false
 gem 'puma'
 gem 'racc'
 
@@ -28,9 +26,6 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
 # Use zepto as the JavaScript library
 gem 'zepto_rails'
@@ -50,11 +45,10 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-gem 'capistrano'
-
-gem 'better_errors', group: :development
-gem 'binding_of_caller', group: :development
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'rvm1-capistrano3'
+end
