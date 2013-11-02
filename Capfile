@@ -15,10 +15,9 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/rails/tree/master/assets
 #   https://github.com/capistrano/rails/tree/master/migrations
 #
-require 'capistrano/rvm'
-# require 'capistrano/rbenv'
+# require 'capistrano/rvm'
 # require 'capistrano/chruby'
-require 'capistrano/bundler'
+require 'rvm1/capistrano3'
 require 'capistrano/rails'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.

@@ -12,63 +12,49 @@ puma_control = "unix://#{shared_path}/sockets/pumactl.sock"
 puma_state = "#{shared_path}/sockets/puma.state"
 puma_log = "#{shared_path}/log/puma-#{fetch(:stage)}.log"
 
+after 'deploy:updating', 'deploy:bundle_install'
+
 namespace :deploy do
   desc "Start the application"
   task :start do
     on roles(:all) do
-      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} && bundle exec puma -b '#{puma_sock}' -e #{fetch(:stage)} -t2:4 --control '#{puma_control}' -S #{puma_state} >> #{puma_log} 2>&1 &", :pty => false
+      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} puma -b '#{puma_sock}' -e #{fetch(:stage)} -t2:4 --control '#{puma_control}' -S #{puma_state} >> #{puma_log} 2>&1 &", :pty => false
     end
   end
 
   desc "Stop the application"
   task :stop do
     on roles(:all) do
-      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} && bundle exec pumactl -S #{puma_state} stop"
+      within release_path do
+        execute "RAILS_ENV=#{fetch(:stage)} pumactl -S #{puma_state} stop"
+      end
     end
   end
 
   desc "Restart the application"
   task :restart do
     on roles(:all) do
-      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} && bundle exec pumactl -S #{puma_state} restart"
+      within release_path do
+        execute "RAILS_ENV=#{fetch(:stage)} pumactl -S #{puma_state} restart"
+      end
     end
   end
 
   desc "Status of the application"
   task :status do
     on roles(:all) do
-      execute "cd #{current_path} && RAILS_ENV=#{fetch(:stage)} && bundle exec pumactl -S #{puma_state} stats"
+      within release_path do
+        execute "RAILS_ENV=#{fetch(:stage)} pumactl -S #{puma_state} stats"
+      end
+    end
+  end
+
+  task :bundle_install do
+    on roles(:app) do
+      within release_path do
+        execute :bundle, "install --quiet --system --without [:test, :development]"
+      end
     end
   end
 end
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server
-# definition into the server list. The second argument
-# something that quacks like a has can be used to set
-# extended properties on the server.
-#server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
-# you can set custom ssh options
-# it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
-# you can see them in [net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start)
-# set it globally
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-# and/or per server
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
-# setting per server overrides global ssh_options
-
-# fetch(:default_env).merge!(rails_env: :production)
