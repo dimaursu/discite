@@ -13,9 +13,9 @@ gem 'kaminari'
 gem 'paperclip'
 gem 'language_list'
 gem 'capistrano-rails'
-gem 'capistrano-bundler'
-gem 'capistrano-rvm'
+gem 'rvm1-capistrano3', require: false
 gem 'puma'
+gem 'racc'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
