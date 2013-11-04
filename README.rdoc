@@ -24,7 +24,10 @@ Things you may want to cover:
 * ...
 
 # To Do
-Integrate TogetherJS
+* Integrate TogetherJS
+* Optimize the app by:
+    - serve assets with nginx
+    - use Unix sockets instead of tcp ones
 
 Possible names: 
 Osmosis
