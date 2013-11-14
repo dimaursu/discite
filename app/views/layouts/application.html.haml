@@ -11,11 +11,17 @@
     = csrf_meta_tags
   %body
     = render 'shared/nav_bar'
-    %p.notice= notice
-    %p.alert= alert
     %section.main
       .row
-        .small-8.large-12.columns
+        .small-12.large-12.columns
+          - if notice
+            .alert-box.notice
+              = notice
+              %a.close{href: "#"} ×
+          - if alert
+            .alert-box.alert
+              =alert
+              %a.close{href: "#"} ×
           = yield
     = render 'shared/footer'
     = javascript_include_tag "application"
