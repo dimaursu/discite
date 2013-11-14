@@ -21,7 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Other tools
+rubocop - static code analyzer
+debugger
+simplecov
 
 # To Do
 * Integrate TogetherJS
