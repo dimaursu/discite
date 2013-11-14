@@ -5,38 +5,87 @@ set :stage, :staging
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{deploy@example.com}
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+role :all, %w{discite@alt.ceata.org}
 
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server
-# definition into the server list. The second argument
-# something that quacks like a has can be used to set
-# extended properties on the server.
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+set :branch, :master
+# will be set to branch staging, probably
 
-# you can set custom ssh options
-# it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
-# you can see them in [net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start)
-# set it globally
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-# and/or per server
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
-# setting per server overrides global ssh_options
+set :default_env, { path: "#{shared_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH" }
+set :deploy_to, "/home/discite/#{fetch(:stage)}"
+set :keep_releases, 2
 
-# fetch(:default_env).merge!(rails_env: :staging)
+set :control_directory, "/home/discite"
+set :format, :pretty
+set :log_level, :debug
+
+after 'deploy:updating', 'deploy:bundle'
+
+puma_sock = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.sock"
+puma_control = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/pumactl.sock"
+puma_state = "#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.state"
+puma_log = "#{fetch(:control_directory)}/#{fetch(:stage)}/log/puma.log"
+
+namespace :deploy do
+
+  task :setup do
+    on roles(:app) do
+      within release_path do
+        execute "mkdir -p #{fetch(:control_directory)}/#{fetch(:stage)}/{log,sockets}"
+      end
+    end
+  end
+
+  task :bundle do
+    on roles(:app) do
+      within release_path do
+        execute :bundle, "install --quiet --without [:test, :development]"
+      end
+    end
+  end
+
+  task :start do
+    on roles(:all) do
+      within release_path do
+        background :puma,
+          "-b #{puma_sock}",
+          "-e #{fetch(:stage)}",
+          "-t 2:4",
+          "--control #{puma_control}",
+          "-S #{puma_state} >> #{puma_log} 2>&1"
+      end
+    end
+  end
+
+  task :stop do
+    on roles(:all) do
+      within release_path do
+        execute :pumactl, "-S #{puma_state} stop"
+      end
+    end
+  end
+
+  task :restart do
+    on roles(:all) do
+      within release_path do
+        execute :pumactl, "-S #{puma_state} restart"
+      end
+    end
+  end
+
+  task :compile_assets do
+    on roles(:all) do
+      within release_path do
+        execute :rake, "assets:precompile"
+      end
+    end
+  end
+
+  task :status do
+    on roles(:all) do
+      within release_path do
+        execute :pumactl, "-S #{puma_state} stats"
+      end
+    end
+  end
+end
+
