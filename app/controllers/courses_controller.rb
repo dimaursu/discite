@@ -18,31 +18,24 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-
-    respond_to do |format|
-      if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
+    if @course.save
+      redirect_to @course, notice: 'Course was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   def update
-    respond_to do |format|
-      if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
+    if @course.update(course_params)
+      redirect_to @course, notice: 'Course was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   def destroy
     @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url }
-    end
+    redirect_to courses_url
   end
 
   private
@@ -53,6 +46,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:title, :description, :user_id, :language, :prerequisites, :duration, :rating)
+      params.require(:course).permit(:title, :description, :language, :prerequisites, :duration, :rating)
     end
 end
