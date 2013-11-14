@@ -1,5 +1,4 @@
-.small-8.large-4.columns
-  %p
-    Welcome #{@email}!
-  %p You can confirm your account email through the link below:
-  %p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token)
+%p
+  Welcome #{@email}!
+%p You can confirm your account email through the link below:
+%p= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token)
