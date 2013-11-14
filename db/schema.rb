@@ -13,14 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20131031113502) do
 
-  create_table "attachments", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-  end
+# Could not dump table "attachments" because of following NoMethodError
+#   undefined method `[]' on nil:NilClass.
 
   create_table "courses", force: true do |t|
     t.string   "title"
