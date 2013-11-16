@@ -46,12 +46,12 @@ namespace :deploy do
   task :start do
     on roles(:all) do
       within release_path do
-        background :puma,
+        execute :puma,
           "-b #{puma_sock}",
-          "-e #{fetch(:stage)}",
+          "-e production",
           "-t 2:4",
           "--control #{puma_control}",
-          "-S #{puma_state} >> #{puma_log} 2>&1"
+          "-S #{puma_state} >> #{puma_log} 2>&1 &"
       end
     end
   end

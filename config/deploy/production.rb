@@ -13,22 +13,23 @@ set :default_env, { path: "#{shared_path}/bin:/home/discite/.rvm/bin:/home/disci
 set :deploy_to, "/home/discite/#{fetch(:stage)}"
 set :keep_releases, 2
 
+set :control_directory, "/home/discite"
 set :format, :pretty
-set :log_level, :info
+set :log_level, :debug
 
 after 'deploy:updating', 'deploy:bundle'
 
-puma_sock = "unix://#{shared_path}/#{fetch(:stage)}/sockets/puma.sock"
-puma_control = "unix://#{shared_path}/#{fetch(:stage)}/sockets/pumactl.sock"
-puma_state = "#{shared_path}/#{fetch(:stage)}/sockets/puma.state"
-puma_log = "#{shared_path}/#{fetch(:stage)}/log/puma.log"
+puma_sock = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.sock"
+puma_control = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/pumactl.sock"
+puma_state = "#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.state"
+puma_log = "#{fetch(:control_directory)}/#{fetch(:stage)}/log/puma.log"
 
 namespace :deploy do
 
   task :setup do
     on roles(:app) do
       within release_path do
-        execute :mkdir, "-p", "#{shared_path}/#{fetch(:stage)}/{sockets,log}"
+        execute "mkdir -p #{fetch(:control_directory)}/#{fetch(:stage)}/{log,sockets}"
       end
     end
   end
@@ -44,12 +45,12 @@ namespace :deploy do
   task :start do
     on roles(:all) do
       within release_path do
-        background :puma,
+        execute :puma,
           "-b #{puma_sock}",
-          "-e #{fetch(:stage)}",
+          "-e production",
           "-t 2:4",
           "--control #{puma_control}",
-          "-S #{puma_state} >> #{puma_log} 2>&1"
+          "-S #{puma_state} >> #{puma_log} 2>&1 &"
       end
     end
   end
