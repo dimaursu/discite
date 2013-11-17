@@ -4412,7 +4412,7 @@ a.th {
 .footer-top .property .learn-links, .footer-top .property .support-links, .footer-top .property .connect-links {
   padding: 50px 0 0 0;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
-  background: url("footer-top-icons.png") no-repeat center 0;
+  background: image-url("footer-top-icons.png") no-repeat center 0;
   height: 200px;
   margin-bottom: 30px; }
 
@@ -4450,7 +4450,7 @@ a.th {
 
 .footer-top .global .footer-link-block {
   font-weight: normal;
-  background: url("footer-icons.png") no-repeat 0 0;
+  background: image-url("footer-icons.png") no-repeat 0 0;
   display: block;
   margin: 30px 0 0 0; }
 
@@ -4490,7 +4490,7 @@ a.th {
 .zurb-footer-bottom a.zurb-logo {
   color: #858585;
   font-weight: normal;
-  background: url("footer-icons.png") no-repeat 0 3px;
+  background: image-url("footer-icons.png") no-repeat 0 3px;
   padding: 25px 0 0 0;
   font-size: 1em;
   display: inline-block;
@@ -4543,7 +4543,7 @@ a.th {
   display: block;
   height: 50px;
   width: 50px;
-  background: url("social.png") no-repeat center 0; }
+  background: image-url("social.png") no-repeat center 0; }
 
 .zurb-footer-bottom ul.home-social li a:hover {
   opacity: 0.8; }
@@ -4944,7 +4944,7 @@ a.sidebar-button h4 {
 
 #sidebar .zurb-links .footer-link-block {
   font-weight: normal;
-  background: url("offcanvas/footer-icons.png") no-repeat 0 0;
+  background: image-url("offcanvas/footer-icons.png") no-repeat 0 0;
   display: block;
   margin-bottom: 14px;
   padding-top: 6px; }
@@ -5099,15 +5099,15 @@ a.sidebar-button h4 {
     overflow-x: hidden; } }
 @font-face {
   font-family: 'raleway';
-  src: url("raleway_thin-webfont.eot");
-  src: url("raleway_thin-webfont.eot") format("embedded-opentype"), url("raleway_thin-webfont.woff") format("woff"), url("raleway_thin-webfont.ttf") format("truetype"), url("raleway_thin-webfont.svg#raleway_thinCondensedBold") format("svg");
+  src: image-url("raleway_thin-webfont.eot");
+  src: image-url("raleway_thin-webfont.eot") format("embedded-opentype"), image-url("raleway_thin-webfont.woff") format("woff"), image-url("raleway_thin-webfont.ttf") format("truetype"), image-url("raleway_thin-webfont.svg#raleway_thinCondensedBold") format("svg");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'raleway';
-  src: url("raleway_thin-webfont.woff");
-  src: url("raleway_thin-webfont.eot") format("eot"), url("raleway_thin-webfont.woff") format("woff"), url("raleway_thin-webfont.ttf") format("truetype"), url("raleway_thin-webfont.svg#webfontZam02nTh") format("svg");
+  src: image-url("raleway_thin-webfont.woff");
+  src: image-url("raleway_thin-webfont.eot") format("eot"), image-url("raleway_thin-webfont.woff") format("woff"), image-url("raleway_thin-webfont.ttf") format("truetype"), image-url("raleway_thin-webfont.svg#webfontZam02nTh") format("svg");
   font-weight: normal;
   font-style: normal; }
 
