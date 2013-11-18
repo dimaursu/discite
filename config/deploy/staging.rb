@@ -10,7 +10,6 @@ role :all, %w{discite@alt.ceata.org}
 set :branch, :master
 # will be set to branch staging, probably
 
-set :default_env, { path: "#{shared_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH" }
 set :deploy_to, "/home/discite/#{fetch(:stage)}"
 set :keep_releases, 2
 
@@ -18,6 +17,7 @@ set :control_directory, "/home/discite"
 set :format, :pretty
 set :log_level, :debug
 
+set :default_env, { path: "#{release_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH" }
 after 'deploy:updating', 'deploy:bundle'
 
 puma_sock = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.sock"
