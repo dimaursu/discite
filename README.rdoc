@@ -1,42 +1,54 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to install the application:
 
-Things you may want to cover:
+* Atention:
+    Run every command with a RAILS_ENV="something" as a prefix, if you want to
+    switch away from the default "development" environment
 
 * Ruby version
+    The program was written on rubinius-2.1.1
+    With small adjustments it will work fine on MRI, v2.0
 
 * System dependencies
+    - nodejs, or another javascript runtime
+    - graphicsmagick
 
 * Configuration
 
 * Database creation
+    Edit the config/database.yml file, and run:
+    rake db:create
 
 * Database initialization
+    rake db:migrate
+    If you are doing development, you may want to run the database seeder script:
+    rake db:seed
 
 * How to run the test suite
+    rake test:all
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+    Capistrano is used for deployment: check config/deploy.rb, config/deploy/, and
+    the Capfile.
 
 * Other tools
-rubocop - static code analyzer
-debugger
-simplecov
+    rubocop - static code analyzer
+    debugger
+    simplecov
 
-# To Do
+=== ToDo
 * Integrate TogetherJS
 * Optimize the app by:
-    - serve assets with nginx
-    - use Unix sockets instead of tcp ones
+    1. serve assets with nginx
+    2. use Unix sockets instead of tcp ones
 
-Possible names: 
-Osmosis
-Discite
-    Aut disce aut discede
-    Either learn or go away.
+Possible names:
+[Osmosis] The name come from the process of osmosis, where 2 cells exchange nutrients
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[Discite] It's from latin, it means "to learn". Also, I found a cool quote:
+        Aut disce aut discede
+        Either learn or go away.
+
