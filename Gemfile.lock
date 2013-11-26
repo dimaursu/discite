@@ -122,6 +122,8 @@ GEM
       rack (>= 1.1, < 2.0)
     racc (1.4.10)
     rack (1.5.2)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.1)
@@ -427,6 +429,7 @@ DEPENDENCIES
   paperclip (~> 2.7)
   puma
   racc
+  rack-cache
   rails (= 4.0.1)
   rspec-rails
   rubysl
