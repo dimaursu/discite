@@ -77,6 +77,9 @@ GEM
       activesupport (>= 3.0.0)
     ffaker (1.22.1)
     ffi2-generators (0.1.1)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -418,6 +421,7 @@ DEPENDENCIES
   devise
   factory_girl
   ffaker
+  foundation-icons-sass-rails
   foundation-rails
   haml
   haml-rails
