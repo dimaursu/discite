@@ -349,7 +349,7 @@ GEM
     rubysl-weakref (2.0.0)
     rubysl-webrick (2.0.0)
     rubysl-xmlrpc (2.0.0)
-    rubysl-yaml (2.0.3)
+    rubysl-yaml (2.0.4)
     rubysl-zlib (2.0.1)
     sass (3.2.12)
     sass-rails (4.0.1)

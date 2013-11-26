@@ -10,11 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require zepto/all
-//= require rails/method
-//= require rails/confirm
-//= require rails/disable
-//= require rails/csrf
+//= require jquery
+//= require jquery_ujs
 //= require foundation
 //= require turbolinks
 //= require_tree .
