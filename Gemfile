@@ -50,7 +50,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'capistrano'
   gem 'capistrano-rails'
-  gem 'capistrano-bundler'
 end
 
 group :test do
