@@ -74,7 +74,7 @@ namespace :deploy do
   task :compile_assets do
     on roles(:all) do
       within release_path do
-        execute :rake, "assets:precompile"
+        execute :bundle, :exec, :rake, "assets:precompile"
       end
     end
   end
