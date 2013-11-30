@@ -5,7 +5,9 @@ set :stage, :production
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :all, %w{discite@alt.ceata.org}
+role :web, %w{discite@alt.ceata.org}
+role :app, %w{discite@alt.ceata.org}
+role :db, %w{discite@alt.ceata.org}
 
 set :branch, :master
 
@@ -37,7 +39,9 @@ namespace :deploy do
   task :bundle do
     on roles(:app) do
       within release_path do
-        execute :bundle, "install --quiet --without [:test, :development]"
+        with rails_env: fetch(:stage) do
+          execute :bundle, "install --quiet --without [:test, :development]"
+        end
       end
     end
   end
@@ -74,7 +78,9 @@ namespace :deploy do
   task :compile_assets do
     on roles(:all) do
       within release_path do
-        execute :bundle, :exec, :rake, "assets:precompile"
+        with rails_env: fetch(:stage) do
+          execute :bundle, :exec, :rake, "assets:precompile"
+        end
       end
     end
   end
