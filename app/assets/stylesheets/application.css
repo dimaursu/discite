@@ -8,10 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require foundation_and_overrides
- *= require jquery.ui.datepicker
- *= require footer
  *= require_self
+ *= require jquery.ui.datepicker
+ *= require foundation_and_overrides
+ *= require footer
  *= require_tree .
  */
 
