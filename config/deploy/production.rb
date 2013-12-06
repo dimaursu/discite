@@ -49,12 +49,14 @@ namespace :deploy do
   task :start do
     on roles(:all) do
       within release_path do
-        execute :puma,
-          "-b #{puma_sock}",
-          "-e production",
-          "-t 2:4",
-          "--control #{puma_control}",
-          "-S #{puma_state} >> #{puma_log} 2>&1 &"
+        with rails_env: fetch(:stage) do
+          execute :bundle, :exec, :puma,
+            "-b #{puma_sock}",
+            "-e production",
+            "-t 2:4",
+            "--control #{puma_control}",
+            "-S #{puma_state} >> #{puma_log} 2>&1 &"
+        end
       end
     end
   end
