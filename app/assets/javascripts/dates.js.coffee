@@ -1,0 +1,2 @@
+$ ->
+  $("input.datetimepicker").datetimepicker()

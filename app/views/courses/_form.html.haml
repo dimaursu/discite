@@ -1,4 +1,4 @@
-= simple_form_for @course do |f|
+= simple_form_for @course, remote: true do |f|
   - if @course.errors.any?
     #error_explanation
       %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
@@ -10,5 +10,5 @@
   = f.input :language, collection: LanguageList::COMMON_LANGUAGES
   = f.input :description
   = f.input :prerequisites
-  = f.input :duration, as: :datetime
-  = f.submit 'Save'
+  = f.input :duration, as: :datetimepicker
+  = f.submit 'Save', class: "button"
