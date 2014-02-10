@@ -1,0 +1,34 @@
+@import "colors/variables";
+
+.button {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 10px 8px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+    position: relative;
+    background: $base;
+    box-shadow: 0 4px darken($base, 20%);
+}
+
+.button:after {
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.button:hover {
+    box-shadow: 0 6px darken($base, 25%);
+    top: -2px;
+}
+
+.button:active {
+    box-shadow: 0 0 darken($base, 25%);
+    top: 6px;
+}
+
+
