@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031113502) do
-
-# Could not dump table "attachments" because of following NoMethodError
-#   undefined method `[]' on nil:NilClass.
+ActiveRecord::Schema.define(version: 20140210174537) do
 
   create_table "courses", force: true do |t|
     t.string   "title"
@@ -22,10 +19,11 @@ ActiveRecord::Schema.define(version: 20131031113502) do
     t.integer  "user_id"
     t.string   "language"
     t.text     "prerequisites"
-    t.datetime "duration"
+    t.datetime "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rating"
+    t.integer  "duration"
   end
 
   create_table "users", force: true do |t|
@@ -42,6 +40,7 @@ ActiveRecord::Schema.define(version: 20131031113502) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rating"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

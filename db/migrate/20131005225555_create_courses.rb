@@ -6,7 +6,7 @@ class CreateCourses < ActiveRecord::Migration
       t.integer :user_id
       t.string :language
       t.text :prerequisites
-      t.datetime :duration
+      t.datetime :starts_at
 
       t.timestamps
     end
