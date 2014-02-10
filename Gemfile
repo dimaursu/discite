@@ -24,12 +24,12 @@ gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails'
+# Use opal instead of JavaScript
+gem 'opal'
 
 # Use jquery as the JavaScript library
+gem 'opal-rails'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
@@ -48,6 +48,8 @@ gem 'stamp'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  # used for rails pannel chrome extension
+  gem 'meta_request'
   gem 'capistrano'
   gem 'capistrano-rails'
 end
@@ -57,6 +59,4 @@ group :test do
   gem 'factory_girl'
   gem 'capybara'
   gem 'database_cleaner'
-  # aplication preloader, to run the tests faster
-  gem 'spring'
 end
