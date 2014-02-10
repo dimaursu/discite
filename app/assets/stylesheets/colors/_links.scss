@@ -1,0 +1,11 @@
+/* Prettier Links */
+@import "variables";
+
+a {
+  transition: color .3s ease-in-out;
+}
+
+a:link { color: $white; }
+a:visited { color: $white; }
+a:hover { color: $aqua; }
+a:active { color: $orange; }
