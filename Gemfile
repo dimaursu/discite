@@ -55,7 +55,8 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rubysl-test-unit'
   gem 'factory_girl'
   gem 'capybara'
   gem 'database_cleaner'
