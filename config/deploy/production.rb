@@ -19,7 +19,6 @@ set :format, :pretty
 set :log_level, :debug
 
 set :default_env, { path: "#{release_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH" }
-after 'deploy:updating', 'deploy:bundle'
 
 puma_sock = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.sock"
 puma_control = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/pumactl.sock"
@@ -96,3 +95,4 @@ namespace :deploy do
   end
 end
 
+after 'deploy:updating', 'deploy:bundle'
