@@ -15,5 +15,6 @@
 /log/*.log
 /tmp
 /tags
+/config/database.yml
 doc
 coverage
