@@ -1,14 +1,22 @@
-= simple_form_for @course, remote: true do |f|
+= simple_form_for @course do |f|
   - if @course.errors.any?
     #error_explanation
       %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
       %ul
         - @course.errors.full_messages.each do |msg|
           %li= msg
-
-  = f.input :title
-  = f.input :language, collection: LanguageList::COMMON_LANGUAGES
-  = f.input :description
-  = f.input :prerequisites
-  = f.input :duration, as: :datetimepicker
+  .row
+    = f.input :title, wrapper_html: { class: "large-8 small-6 columns" }
+    = f.input :language, collection: LanguageList::COMMON_LANGUAGES,
+      wrapper_html: { class: "large-4 small-6 columns" }
+  = f.input :description, input_html: { rows: 8 }
+  = f.input :prerequisites, input_html: { rows: 6 }
+  .row
+    = f.input :starts_at, time_separator: '', datetime_separator: '',
+      input_html: { class: "large-2 small-2 columns end" },
+      wrapper_html: { class: "large-10 columns" },
+      prompt: true,
+      start_year: Time.now.year
+    = f.input :duration, label: "Duration (hours)", type: "number",
+      wrapper_html: {class: "large-2 columns" }
   = f.submit 'Save', class: "button"

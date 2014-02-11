@@ -7,8 +7,8 @@
   %b Description:
   = @course.description
 %p
-  %b User:
-  = @course.user_id
+  %b Made by:
+  = @course.user.name
 %p
   %b Language:
   = @course.language
@@ -19,9 +19,9 @@
   %b Duration:
   = @course.duration
 
-= link_to 'Edit', edit_course_path(@course), class: "button"
-\|
-= link_to 'Back', courses_path, class: "button"
+.row
+  = link_to 'Edit', edit_course_path(@course), class: "button"
+  = link_to 'Back', courses_path, class: "button"
+  %button{onclick: "TogetherJS(this); return false;", class: "button"}  Start TogetherJS
 
 %script{src: "https://togetherjs.com/togetherjs-min.js"}
-%button{onclick: "TogetherJS(this); return false;"} Start TogetherJS

@@ -1,7 +1,6 @@
-%h1 Editing course
+%h2 Editing course
 
 = render 'form'
-
-= link_to 'Show', @course, class: "button"
-\|
-= link_to 'Back', courses_path, class: "button"
+.row
+  = link_to 'Show', @course, class: "button"
+  = link_to 'Back', courses_path, class: "button"
