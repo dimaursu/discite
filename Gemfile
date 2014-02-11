@@ -15,11 +15,11 @@ gem 'rubysl'
 gem 'racc'
 gem 'rack-cache'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
