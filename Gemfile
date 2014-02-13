@@ -50,8 +50,10 @@ group :development do
   gem 'binding_of_caller'
   # used for rails pannel chrome extension
   gem 'meta_request'
-  gem 'capistrano'
-  gem 'capistrano-rails'
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'quiet_assets'
 end
 
 group :test do
