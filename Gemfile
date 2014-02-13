@@ -13,7 +13,6 @@ gem 'language_list'
 gem 'puma'
 gem 'rubysl'
 gem 'racc'
-gem 'rack-cache'
 
 gem 'mysql2'
 
