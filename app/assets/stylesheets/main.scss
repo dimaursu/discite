@@ -4,23 +4,23 @@
 
 @font-face {
     font-family: 'OpenSans Light';
-    src: url('OpenSans-Light.woff') format('woff');
+    src: font-url('OpenSans-Light.woff') format('woff');
 }
 @font-face {
     font-family: 'OpenSans Italic';
-    src: url('OpenSans-Italic.woff') format('woff');
+    src: font-url('OpenSans-Italic.woff') format('woff');
 }
 @font-face {
     font-family: 'OpenSans Regular';
-    src: url('OpenSans-Regular.woff') format('woff');
+    src: font-url('OpenSans-Regular.woff') format('woff');
 }
 @font-face {
     font-family: 'OpenSans Bold';
-    src: url('OpenSans-Bold.woff') format('woff');
+    src: font-url('OpenSans-Bold.woff') format('woff');
 }
 @font-face {
     font-family: 'Raleway Thin';
-    src: url('raleway_thin.woff') format('woff');
+    src: font-url('raleway_thin.woff') format('woff');
 }
 
 body {
