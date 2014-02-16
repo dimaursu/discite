@@ -1,11 +1,10 @@
 !!!
 %html{:lang => "en"}
-  / <![endif]
   %head
-    %meta{:charset => "utf-8"}/
-    / Set the viewport width to device width for mobile
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     %title= content_for?(:title) ? yield(:title) : "Discite"
+    = favicon_link_tag
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
