@@ -18,6 +18,7 @@ require 'capistrano/deploy'
 # require 'capistrano/rvm'
 # require 'capistrano/chruby'
 # require 'rvm1/capistrano3'
+require 'capistrano/bundler'
 require 'capistrano/rails'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.

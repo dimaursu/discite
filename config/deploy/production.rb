@@ -9,6 +9,8 @@ role :web, %w{discite@alt.ceata.org}
 role :app, %w{discite@alt.ceata.org}
 role :db, %w{discite@alt.ceata.org}
 
+set :rails_env, 'production'
+
 set :branch, :master
 
 set :deploy_to, "/home/discite/#{fetch(:stage)}"
@@ -76,16 +78,6 @@ namespace :deploy do
     end
   end
 
-  task :compile_assets do
-    on roles(:all) do
-      within release_path do
-        with rails_env: fetch(:stage) do
-          execute :bundle, :exec, :rake, "assets:precompile"
-        end
-      end
-    end
-  end
-
   task :status do
     on roles(:all) do
       within release_path do
@@ -95,4 +87,3 @@ namespace :deploy do
   end
 end
 
-after 'deploy:updating', 'deploy:bundle'
