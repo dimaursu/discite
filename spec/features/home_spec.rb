@@ -1,12 +1,11 @@
-require 'spec_helper.rb'
+require 'spec_helper'
 require 'pages/home_page.rb'
 
-describe HomePage do
-  before do
-    visit root_url
-  end
+describe 'front page' do
+  let(:homepage) { HomePage.new }
 
   it 'should display latest courses' do
-    expect(page).to have_content
+    homepage.visit_page
+    expect(page).to have_content('Welcome to Discite, the interactive peer-to-peer teaching site')
   end
 end
