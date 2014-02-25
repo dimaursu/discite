@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.1.0.rc1'
 gem 'devise'
 gem 'orm_adapter', '~> 0.5'
 gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'kaminari'
-gem 'paperclip', '~> 2.7'
+gem 'paperclip'
 gem 'language_list'
+gem 'i18n', github: 'svenfuchs/i18n'
 gem 'puma'
 gem 'rubysl'
 gem 'racc'
@@ -32,7 +33,8 @@ gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster. Read more:
+# https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 group :doc do
@@ -41,7 +43,8 @@ end
 
 # FFaker generates fake data: FFaker::Name.name #=> "Christopher Bartel"
 gem 'ffaker', group: [:development, :test]
-# Stamp generates dates according to a provided pattern: date.stamp("March 1, 1999") #=> "June 9, 2011"
+# Stamp generates dates according to a provided pattern: date.stamp("March 1,
+# 1999") #=> "June 9, 2011"
 gem 'stamp'
 
 group :development do
@@ -58,7 +61,8 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rubysl-test-unit', require: false
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
 end

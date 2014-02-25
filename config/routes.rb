@@ -3,8 +3,9 @@ Discite::Application.routes.draw do
     resources :courses
     devise_for :users
   end
-  root :to => "home#index"
+
   match "/:locale" => "home#index", via: [:get]
+  root :to => "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -42,7 +43,7 @@ Discite::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

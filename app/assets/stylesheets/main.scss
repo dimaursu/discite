@@ -36,11 +36,10 @@ body {
       font-family: 'Raleway Thin';
   }
 }
-/* footer
- */
+/* footer */
 @media only screen and (min-width: 1024px) {
     @import "compass/layout/sticky-footer";
-    @include sticky-footer(18em, ".main", "#root-footer", ".zurb-footer-top")
+    @include sticky-footer(".main", "#root-footer", ".zurb-footer-top")
 }
 
 
