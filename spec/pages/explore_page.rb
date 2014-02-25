@@ -1,3 +1,5 @@
+# @author Dumitru Ursu
+# Page Object for the list of all courses.
 class ExplorePage
   include Capybara::DSL
 
@@ -6,4 +8,3 @@ class ExplorePage
     self
   end
 end
-

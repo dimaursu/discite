@@ -1,3 +1,5 @@
+# @author Dumitru Ursu
+# Page Object for the front page
 class HomePage
   include Capybara::DSL
 
@@ -12,4 +14,3 @@ class HomePage
     click_on 'Log In'
   end
 end
-
