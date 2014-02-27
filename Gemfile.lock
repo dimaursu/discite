@@ -429,9 +429,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
-    simple_form (3.0.1)
-      actionpack (>= 4.0.0, < 4.1)
-      activemodel (>= 4.0.0, < 4.1)
     source_map (3.0.1)
       json
     sprockets (2.11.0)
@@ -488,7 +485,6 @@ DEPENDENCIES
   ffaker
   foundation-icons-sass-rails
   foundation-rails
-  haml
   haml-rails
   jquery-rails
   kaminari
@@ -509,7 +505,6 @@ DEPENDENCIES
   sass-rails
   sdoc
   selenium-webdriver
-  simple_form
   stamp
   turbolinks
   uglifier
