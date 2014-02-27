@@ -1,2 +1,20 @@
 ro:
   welcome_msg: "Bine ai venit la Discite, situl interactiv de predare de la egal la egal"
+  date:
+    day_names: [Duminică, Luni, Marți, Miercuri, Joi, Vineri, Sâmbătă]
+    abbr_day_names: [Dum., Lu., M., Mier., J., Vi., Sâm.]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Ianuarie, Februarie, Martie, Aprilie, Mai, Iunie, Iulie, August, Septembrie, Octombrie, Noiembrie, Decembrie]
+    abbr_month_names: [~, Ian., Feb., Mar., Apr., Mai, Iunie, Iulie, Aug., Sept., Oct., Noem., Dec.]
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+      prompts:
+          day: "Selectează ziua"
+          month: "Selecteză luna"
+          year: "Selectează anul"
+          hour: "Selectează ora"
+          minute: "Selectează minutul"
