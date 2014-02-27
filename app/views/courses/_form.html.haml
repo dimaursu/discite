@@ -1,4 +1,4 @@
-= simple_form_for @course do |f|
+= form_for @course do |f|
   - if @course.errors.any?
     #error_explanation
       %h2= "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
@@ -6,17 +6,22 @@
         - @course.errors.full_messages.each do |msg|
           %li= msg
   .row
-    = f.input :title, wrapper_html: { class: "large-8 small-6 columns" }
-    = f.input :language, collection: LanguageList::COMMON_LANGUAGES,
-      wrapper_html: { class: "large-4 small-6 columns" }
-  = f.input :description, input_html: { rows: 8 }
-  = f.input :prerequisites, input_html: { rows: 6 }
+    .columns.large-8.small-6
+      = f.label :title
+      = f.text_field :title
+    .columns.large-4.small-6
+      = f.label :language
+      = f.select :language, LanguageList::COMMON_LANGUAGES.map{ |language| [language.name, language.iso_639_1] }
+  = f.label :description
+  = f.text_area :description, rows: 8
+  = f.label :prerequisites
+  = f.text_area :prerequisites, rows: 6
   .row
-    = f.input :starts_at, time_separator: '', datetime_separator: '',
-      input_html: { class: "large-2 small-2 columns end" },
-      wrapper_html: { class: "large-10 columns" },
-      prompt: true,
-      start_year: Time.now.year
-    = f.input :duration, label: "Duration (hours)", type: "number",
-      wrapper_html: {class: "large-2 columns" }
-  = f.submit 'Save', class: "button"
+    .columns.large-10
+      = f.label 'Starting Date'
+      = datetime_select :course, :starts_at, {time_separator: '', datetime_separator: '',
+        prompt: true}, {class: 'large-2 columns end'}
+    .columns.large-2
+      = f.label 'Duration (hours)'
+      = f.text_field :duration, type: 'number'
+  = f.submit 'Save', class: 'button'
