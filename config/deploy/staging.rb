@@ -13,11 +13,11 @@ set :branch, :master
 set :deploy_to, "/home/discite/#{fetch(:stage)}"
 set :keep_releases, 2
 
-set :control_directory, "/home/discite"
+set :control_directory, '/home/discite'
 set :format, :pretty
 set :log_level, :debug
 
-set :default_env, { path: "#{release_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH" }
+set :default_env,  path: "#{release_path}/bin:/home/discite/.rvm/bin:/home/discite/.nvm/bin:$PATH"
 after 'deploy:updating', 'deploy:bundle'
 
 puma_sock = "unix://#{fetch(:control_directory)}/#{fetch(:stage)}/sockets/puma.sock"
@@ -38,7 +38,7 @@ namespace :deploy do
   task :bundle do
     on roles(:app) do
       within release_path do
-        execute :bundle, "install --quiet --without [:test, :development]"
+        execute :bundle, 'install --quiet --without [:test, :development]'
       end
     end
   end
@@ -47,11 +47,11 @@ namespace :deploy do
     on roles(:all) do
       within release_path do
         execute :puma,
-          "-b #{puma_sock}",
-          "-e production",
-          "-t 2:4",
-          "--control #{puma_control}",
-          "-S #{puma_state} >> #{puma_log} 2>&1 &"
+                "-b #{puma_sock}",
+                '-e production',
+                '-t 2:4',
+                "--control #{puma_control}",
+                "-S #{puma_state} >> #{puma_log} 2>&1 &"
       end
     end
   end
@@ -75,7 +75,7 @@ namespace :deploy do
   task :compile_assets do
     on roles(:all) do
       within release_path do
-        execute :rake, "assets:precompile"
+        execute :rake, 'assets:precompile'
       end
     end
   end
@@ -88,4 +88,3 @@ namespace :deploy do
     end
   end
 end
-

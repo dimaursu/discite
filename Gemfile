@@ -53,6 +53,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'quiet_assets'
+  gem 'rubocop'
 end
 
 group :test do
