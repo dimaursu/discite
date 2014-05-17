@@ -12,8 +12,14 @@
 //
 //= require opal
 //= require opal_ujs
-//= require foundation
 //= require turbolinks
+//= require foundation
+//= require deck.core
+//= require deck.goto
+//= require deck.menu
+//= require deck.navigation
+//= require deck.status
+// require deck.scale
 //= require_tree .
 
  $(document).foundation();

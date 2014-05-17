@@ -11,5 +11,15 @@
  *= require_self
  *= require foundation
  *= require_tree .
+ *= require deck.core
+ *= require deck.goto
+ *= require deck.menu
+ *= require deck.navigation
+ *= require deck.status
+ * require deck.scale
+ * Select a theme for deck.js
+ *= require web-2.0
+ * Select a transition theme
+ *= require fade
  */
 
