@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def nearest_course
     self.courses.order(:starts_at).first
   end
+
+  def handle
+    self.name || self.email.split('@').first
+  end
 end
