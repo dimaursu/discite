@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc1'
+gem 'rails', '4.1.0'
 gem 'devise'
 gem 'orm_adapter', '~> 0.5'
 gem 'haml-rails'
@@ -15,8 +15,8 @@ gem 'racc'
 gem 'mysql2'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
-gem 'compass-rails'
+gem 'sass-rails', '~> 4.0.3'
+gem 'compass-rails', '~> 1.1.7'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
@@ -27,6 +27,7 @@ gem 'opal'
 # Use jquery as the JavaScript library
 gem 'opal-rails'
 gem 'jquery-rails'
+gem 'bower-rails'
 gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
@@ -38,11 +39,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# FFaker generates fake data: FFaker::Name.name #=> "Christopher Bartel"
+# FFaker generates fake data: Faker::Name.name #=> "Christopher Bartel"
 gem 'ffaker', group: [:development, :test]
-# Stamp generates dates according to a provided pattern: date.stamp("March 1,
-# 1999") #=> "June 9, 2011"
-gem 'stamp'
 
 group :development do
   gem 'better_errors'
@@ -58,7 +56,7 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'rubysl-test-unit', require: false
+  #gem 'rubysl-test-unit', require: false
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
