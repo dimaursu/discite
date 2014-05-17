@@ -10,7 +10,7 @@ class HomePage
 
   def login(user)
     fill_in 'email', with: user.email
-    fill_in 'password', with: 'password'
+    fill_in 'password', with: user.password
     click_on 'Log In'
   end
 end
