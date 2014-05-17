@@ -7,6 +7,7 @@
     %th User
     %th Language
     %th Prerequisites
+    %th Starts in
     %th Duration
     %th
     %th
@@ -19,7 +20,8 @@
       %td= course.user.handle
       %td= course.language
       %td= course.prerequisites
-      %td= course.duration
+      %td= distance_of_time_in_words(Time.now, course.starts_at)
+      %td= course.duration.to_s + " h"
       %td= link_to 'Show', course, class: "button"
       %td= link_to 'Edit', edit_course_path(course), class: "button"
       %td= link_to 'Destroy', course, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "button"

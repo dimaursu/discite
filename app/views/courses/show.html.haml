@@ -16,6 +16,9 @@
   %b Prerequisites:
   = @course.prerequisites
 %p
+  %b Starts in:
+  = distance_of_time_in_words(Time.now, @course.starts_at)
+%p
   %b Duration:
   = @course.duration
 
