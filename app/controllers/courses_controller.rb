@@ -3,6 +3,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :run, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :redirect_to_course, except: :run
 
   def index
     @courses = Course.all
@@ -50,6 +51,12 @@ class CoursesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_course
     @course = Course.find(params[:id])
+  end
+
+  def redirect_to_course
+    course = current_user.nearest_course
+    # we redirect to the course page even if it's 5 minutes earlier
+    redirect_to course_start_path(course) if Time.now + 1.hour > course.starts_at
   end
 
   def course_params

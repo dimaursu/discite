@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :courses
+
+  def nearest_course
+    self.courses.order(:starts_at).first
+  end
 end
