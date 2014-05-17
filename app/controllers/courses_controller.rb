@@ -24,8 +24,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(course_params)
-    @course.user_id = current_user.id
+    @course = current_user.courses.new(course_params)
     if @course.save
       redirect_to @course, notice: 'Course was successfully created.'
     else
