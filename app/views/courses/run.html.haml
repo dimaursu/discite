@@ -1,11 +1,5 @@
-.row
-  %b Title:
-  = @course.title
-  %b Made by:
-  = @course.user.handle
-  %b Duration:
-  = @course.duration
-%div
+%h1 #{@course.title}, by #{@course.user.handle}, lasts #{@course.duration} hours
+%div.row
   #presentation
     %div{"aria-role" => "navigation"}
       %a.deck-prev-link{href: "#", title: "Previous"} ←
@@ -15,10 +9,6 @@
       %input#goto-slide{list: "goto-datalist", name: "slidenum", type: "text"}/
       %datalist#goto-datalist
       %input{type: "submit", value: "Go"}/
-    %p.deck-status{"aria-role" => "status"}
-      %span.deck-status-current
-      \/
-      %span.deck-status-total
     = render file: @slides_path
 .row
   = render 'video_broadcast'
