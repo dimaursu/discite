@@ -54,12 +54,13 @@ class CoursesController < ApplicationController
 
   def redirect_to_course
     course = current_user.nearest_course
-    # we redirect to the course page even if it's 5 minutes earlier
-    redirect_to course_start_path(course) if Time.now + 1.hour > course.starts_at
+    # we redirect to the course page even if it's 1.hour earlier
+    # TODO add a setting in the user profile for time before redirection
+    #redirect_to course_start_path(course) if Time.now + 1.hour > course.starts_at
   end
 
   def course_params
     params.require(:course).permit(:title, :description, :language, :slides,
-                                   :prerequisites, :duration, :rating)
+                                   :prerequisites, :duration, :rating, :starts_at)
   end
 end
