@@ -21,7 +21,6 @@
 
 .row
   = link_to 'Edit', edit_course_path(@course), class: "button"
+  = link_to 'Run', course_start_path(@course), class: "button"
   = link_to 'Back', courses_path, class: "button"
-  %button{onclick: "TogetherJS(this); return false;", class: "button"}  Start TogetherJS
 
-%script{src: "https://togetherjs.com/togetherjs-min.js"}

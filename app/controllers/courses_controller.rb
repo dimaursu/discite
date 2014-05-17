@@ -1,7 +1,7 @@
 # @author Dumitru Ursu
 # Controller for the courses
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :run, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
@@ -9,6 +9,10 @@ class CoursesController < ApplicationController
   end
 
   def show
+  end
+
+  def run
+    @slides_path = "#{Rails.root}" + '/public' + @course.slides.url.sub!(/\?(.*)\z/, '')
   end
 
   def new
@@ -49,7 +53,7 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:title, :description, :language,
+    params.require(:course).permit(:title, :description, :language, :slides,
                                    :prerequisites, :duration, :rating)
   end
 end
