@@ -1,3 +1,4 @@
+# encoding: UTF-8
 set :stage, :production
 
 # Simple Role Syntax
@@ -5,9 +6,9 @@ set :stage, :production
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :web, %w{discite@alt.ceata.org}
-role :app, %w{discite@alt.ceata.org}
-role :db, %w{discite@alt.ceata.org}
+role :web, %w(discite@alt.ceata.org)
+role :app, %w(discite@alt.ceata.org)
+role :db, %w(discite@alt.ceata.org)
 
 set :rails_env, 'production'
 

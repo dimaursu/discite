@@ -10,16 +10,21 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require opal
-//= require opal_ujs
+//= require jquery/dist/jquery
+//= require jquery-placeholder/jquery.placeholder
+//= require jquery.cookie/jquery.cookie
+//= require fastclick/lib/fastclick
+//= require modernizr/modernizr
+//= require foundation/js/foundation
+//= require_tree ../../../vendor/assets/components/foundation/js/foundation/
+//= require deck.js/core/deck.core
+//= require deck.js/extensions/goto/deck.goto
+//= require deck.js/extensions/menu/deck.menu
+//= require deck.js/extensions/navigation/deck.navigation
+//= require deck.js/extensions/status/deck.status
+//= require deck.annotate.js/deck.annotate
+//= require sisyphus/sisyphus
 //= require turbolinks
-//= require foundation
-//= require deck.core
-//= require deck.goto
-//= require deck.menu
-//= require deck.navigation
-//= require deck.status
-// require deck.scale
 //= require_tree .
 
  $(document).foundation();

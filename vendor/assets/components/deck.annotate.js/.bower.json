@@ -1,0 +1,33 @@
+{
+  "name": "deck.annotate.js",
+  "main": "deck.annotate.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nemec/deck.annotate.js",
+  "authors": [
+    "Dan Nemec <dan@nem.ec>"
+  ],
+  "description": "Allows you to annotate deck.js presentation slides",
+  "keywords": [
+    "deck.js",
+    "annotate",
+    "slides",
+    "presentation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.0",
+    "commit": "7c8af297612a7039979500c05142e2c4efbfbcc9"
+  },
+  "_source": "git://github.com/nemec/deck.annotate.js.git",
+  "_target": "~0.0.0",
+  "_originalSource": "deck.annotate.js"
+}

@@ -1,3 +1,8 @@
 %h2 New course
 
 = render 'form'
+
+:javascript
+  window.onload = function(){
+    $('#new_course').sisyphus();
+  };

@@ -36,12 +36,6 @@ body {
       font-family: 'Raleway Thin';
   }
 }
-/* footer */
-@media only screen and (min-width: 1024px) {
-    @import "compass/layout/sticky-footer";
-    @include sticky-footer(".main", "#root-footer", ".zurb-footer-top")
-}
-
 
 .top-bar-section ul li > a {
     font-family: "OpenSans Regular";
@@ -101,4 +95,17 @@ textarea {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.orbit-container .orbit-slides-container img {
+    width: 100%;
+}
+
+.deck-container {
+    height: 400px;
+    overflow: hidden;
+}
+
+.slide {
+    overflow: auto;
 }

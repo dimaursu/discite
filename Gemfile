@@ -16,19 +16,11 @@ gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
-gem 'compass-rails', '~> 1.1.7'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 
-# Use opal instead of JavaScript
-gem 'opal'
-
-# Use jquery as the JavaScript library
-gem 'opal-rails'
-gem 'jquery-rails'
 gem 'bower-rails'
-gem 'foundation-rails'
 gem 'foundation-icons-sass-rails'
 
 # Turbolinks makes following links in your web application faster. Read more:

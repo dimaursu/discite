@@ -1,20 +1,15 @@
-%h1 #{@course.title}, by #{@course.user.handle}, lasts #{@course.duration} hours
-%div.row
-  #presentation
-    %div{"aria-role" => "navigation"}
-      %a.deck-prev-link{href: "#", title: "Previous"} ←
-      %a.deck-next-link{href: "#", title: "Next"} →
-    %form.goto-form{action: ".", method: "get"}
-      %label{for: "goto-slide"} Go to slide:
-      %input#goto-slide{list: "goto-datalist", name: "slidenum", type: "text"}/
-      %datalist#goto-datalist
-      %input{type: "submit", value: "Go"}/
-    = render file: @slides_path
+%h4 #{@course.title}, by #{@course.user.handle}, lasts #{@course.duration} hours
+#presentation
+  %div{"aria-role" => "navigation"}
+    %a.deck-prev-link{href: "#", title: "Previous"} ←
+    %a.deck-next-link{href: "#", title: "Next"} →
+  %form.goto-form{action: ".", method: "get"}
+    %label{for: "goto-slide"} Go to slide:
+    %input#goto-slide{list: "goto-datalist", name: "slidenum", type: "text"}/
+    %datalist#goto-datalist
+    %input{type: "submit", value: "Go"}/
+  = render file: @slides_path
 .row
   = render 'video_broadcast'
 
-:javascript
-  window.onload = function() {
-    $.deck('.slide');
-  };
 
